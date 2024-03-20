@@ -65,7 +65,7 @@ class ConvertJSON:
         self.df = pd.concat([df.drop(['filtered_labels'], axis=1), expanded_df], axis=1)
         self.df = self.df.drop(['labels', "tags"], axis=1)
 
-        self.df["image_rating"] = self.df['dataset_name'].str.extract('(\d+)$').astype(int)
+        self.df["image_rating"] = self.df['dataset_name'].str.extract('(\d+)$')
         logger.info("Data processed.")
 
     def filter_labels(self, label):
